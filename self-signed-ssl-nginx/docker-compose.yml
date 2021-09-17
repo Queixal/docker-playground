@@ -1,0 +1,14 @@
+# Docker Compose file for self signed ssl nginx server 
+
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx 
+    container_name: self-signed-nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./certs:/certs
+      - ./cfg/sample.conf:/etc/nginx/conf.d/sample.conf
